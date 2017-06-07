@@ -13,13 +13,18 @@ export default class Login extends Component {
     title: 'Login',
   };
 
+  state = {
+    username: '',
+    password: '',
+  }
+
   render () {        
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
           <Image 
             style={styles.logo}
-            source={require('./Image/pti.png')}
+            source={{ uri:'http://mhs.rey1024.com/1415051006/Image/pti.png' }}
           />
 
           <Text style={styles.title}>Jamandi Login</Text>
@@ -49,15 +54,6 @@ export default class Login extends Component {
     );
   }
 
-  componentDidMount() {
-     fetch('http://mhs.rey1024.com/1415051006/index.php/user/jsonUser')
-        .then((response) => response.json())
-        .then((responseJson) => {this.setState({lcd: responseJson.id_lcd});})
-        .catch((error) => {
-            console.error(error);
-        })
-  }
-
   ProsesLogin() {    
     if (this.state.username == '') {
       Alert.alert(
@@ -66,15 +62,15 @@ export default class Login extends Component {
       );
       return;
     }
+
     if (this.state.password == '') {
       Alert.alert(
             'Error',
             'Password Cannot be Empty!',
       );
       return;
-    }
-    
-    fetch("http://mhs.rey1024.com/1415051006/index.php/user/Login?username="+this.state.username+"&password="+this.state.password+"")
+    } else {
+      fetch("http://mhs.rey1024.com/1415051006/index.php/user/Login?username="+this.state.username+"&password="+this.state.password+"")
       .then((response) => response.json())
       .then((responseData) => {
         var id = responseData;
@@ -90,7 +86,8 @@ export default class Login extends Component {
         }
       })
       .done();
-  }  
+      }
+    }
 }
 
 const NavigasiLogin = StackNavigator({

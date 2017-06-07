@@ -10,10 +10,6 @@ import {
   ScrollView,
 } from 'react-native';
 
-import data from './sales.json';
- 
-//import this
-
 var URL="http://mhs.rey1024.com/1415051006/index.php/Transaksi/jsonPeminjaman";
 
 class Peminjaman extends Component {     

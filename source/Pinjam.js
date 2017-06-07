@@ -6,7 +6,8 @@ StyleSheet,
 Text,
 TextInput,
 TouchableOpacity,
-View
+View,
+Image,
 } from  'react-native'; 
 
 import Peminjaman from './Peminjaman';
@@ -109,11 +110,13 @@ const styles  = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
+    marginTop: 10,
     flexGrow: 1,
     justifyContent: 'center',
   },
   formContainer: {
     padding: 20,
+    marginTop: 10,
   },
   logo: {
     width: 100,
@@ -121,6 +124,7 @@ const styles  = StyleSheet.create({
   },
   title:{
     color: '#fff',
+    fontSize: 25,
     marginTop: 10,
     width: 160,
     textAlign: 'center',
